@@ -1,0 +1,70 @@
+.gallery-page {
+  padding: 1rem 0;
+}
+
+.gallery-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.state-message {
+  text-align: center;
+  padding: 3rem;
+  color: #888;
+  font-size: 1.1rem;
+}
+
+.state-message.error {
+  color: #e74c3c;
+  background: #fdf0ef;
+  border-radius: 8px;
+  border: 1px solid #f5c6c4;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.photo-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #e8f4fd, #d1eaf9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.photo-info {
+  padding: 1rem 1.2rem;
+}
+
+.photo-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.3rem;
+}
+
+.photo-info p {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.4;
+}

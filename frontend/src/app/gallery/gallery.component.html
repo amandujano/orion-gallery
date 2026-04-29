@@ -1,0 +1,25 @@
+<section class="gallery-page">
+  <h2 class="gallery-title">Orion's Photos</h2>
+
+  @if (loading) {
+    <div class="state-message">Loading photos…</div>
+  } @else if (error) {
+    <div class="state-message error">{{ error }}</div>
+  } @else if (photos.length === 0) {
+    <div class="state-message">No photos yet — add some!</div>
+  } @else {
+    <div class="photo-grid">
+      @for (photo of photos; track photo.id) {
+        <div class="photo-card">
+          <div class="photo-placeholder">
+            <span>🐱</span>
+          </div>
+          <div class="photo-info">
+            <h3>{{ photo.title }}</h3>
+            <p>{{ photo.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</section>
