@@ -1,0 +1,77 @@
+<section class="upload-page">
+  <h2 class="page-title">Add a Photo</h2>
+
+  <!-- ── Success state ───────────────────────────────────────────────────── -->
+  @if (state === 'success' && successPhoto) {
+    <div class="success-card">
+      <div class="success-icon">✅</div>
+      <h3>Photo uploaded!</h3>
+      <p><strong>{{ successPhoto.title }}</strong> has been saved to the gallery.</p>
+      <div class="success-actions">
+        <button class="btn btn-primary" (click)="uploadAnother()">Upload another</button>
+        <a class="btn btn-secondary" routerLink="/gallery">View gallery</a>
+      </div>
+    </div>
+  }
+
+  <!-- ── Upload form ─────────────────────────────────────────────────────── -->
+  @if (state !== 'success') {
+    <form class="upload-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <!-- File picker -->
+      <div class="file-area" [class.has-preview]="previewUrl">
+        @if (previewUrl) {
+          <img [src]="previewUrl" alt="Preview" class="preview-image" />
+          <span class="change-label">Click to change image</span>
+        } @else {
+          <div class="file-placeholder">
+            <span class="file-icon">🖼️</span>
+            <span class="file-hint">Click to select an image</span>
+            <span class="file-sub">JPEG, PNG, GIF, WebP · max 50 MB</span>
+          </div>
+        }
+        <input type="file" accept="image/*" class="file-input" (change)="onFileSelected($event)" />
+      </div>
+
+      <!-- Title -->
+      <div class="field">
+        <label for="title">Title <span class="required">*</span></label>
+        <input id="title" type="text" formControlName="title"
+               placeholder="e.g. Orion in the sun" maxlength="120" />
+        @if (form.controls.title.invalid && form.controls.title.touched) {
+          <span class="field-error">Title is required.</span>
+        }
+      </div>
+
+      <!-- Description -->
+      <div class="field">
+        <label for="description">Description <span class="required">*</span></label>
+        <textarea id="description" formControlName="description" rows="3"
+                  placeholder="Tell us about this moment…" maxlength="500"></textarea>
+        @if (form.controls.description.invalid && form.controls.description.touched) {
+          <span class="field-error">Description is required.</span>
+        }
+      </div>
+
+      <!-- Error banner -->
+      @if (state === 'error') {
+        <div class="error-banner">{{ errorMessage }}</div>
+      }
+
+      <!-- Upload progress -->
+      @if (state === 'uploading') {
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" [style.width.%]="uploadProgress"></div>
+        </div>
+        <p class="progress-label">Uploading… {{ uploadProgress }}%</p>
+      }
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-primary btn-full"
+              [disabled]="form.invalid || !selectedFile || state === 'uploading'">
+        @if (state === 'uploading') { Uploading… } @else { Save to Gallery }
+      </button>
+
+    </form>
+  }
+</section>

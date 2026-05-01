@@ -1,0 +1,218 @@
+.upload-page {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1.8rem;
+}
+
+/* ── Form layout ── */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* ── File picker ── */
+.file-area {
+  position: relative;
+  border: 2px dashed #b0c4d8;
+  border-radius: 10px;
+  background: #f0f7ff;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.file-area:hover {
+  border-color: #3498db;
+  background: #e8f4fd;
+}
+
+.file-area.has-preview {
+  border-style: solid;
+  border-color: #3498db;
+}
+
+.file-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.file-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.file-icon { font-size: 3rem; }
+
+.file-hint {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.file-sub {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.preview-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.change-label {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.7rem;
+  font-size: 0.75rem;
+  background: rgba(0,0,0,0.55);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* ── Fields ── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.required { color: #e74c3c; }
+
+.field input,
+.field textarea {
+  padding: 0.65rem 0.9rem;
+  border: 1.5px solid #cdd8e3;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #333;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.field-error {
+  font-size: 0.8rem;
+  color: #e74c3c;
+}
+
+/* ── Progress ── */
+.progress-bar-track {
+  background: #e0eaf2;
+  border-radius: 99px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #3498db;
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+}
+
+/* ── Banners ── */
+.error-banner {
+  background: #fdf0ef;
+  border: 1px solid #f5c6c4;
+  color: #c0392b;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* ── Success card ── */
+.success-card {
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.success-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+
+.success-card h3 {
+  font-size: 1.3rem;
+  color: #166534;
+  margin-bottom: 0.4rem;
+}
+
+.success-card p {
+  color: #555;
+  margin-bottom: 1.2rem;
+}
+
+.success-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s, transform 0.1s;
+  text-decoration: none;
+}
+
+.btn:active  { transform: scale(0.98); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-primary            { background: #2c3e50; color: white; }
+.btn-primary:hover:not(:disabled) { background: #3d5166; }
+
+.btn-secondary          { background: #e8f0f7; color: #2c3e50; }
+.btn-secondary:hover    { background: #d5e3ef; }
+
+.btn-full { width: 100%; }
