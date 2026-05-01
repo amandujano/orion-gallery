@@ -41,6 +41,30 @@ The application will start and serve both the backend API and the frontend Angul
 - `frontend/` - Angular frontend application
 - `pom.xml` - Maven build configuration
 
+## Vercel Configuration
+
+The application uses Vercel Blob for storage:
+- **Images**: Stored at `photos/<uuid>.<ext>` with random UUIDs for unique URLs
+- **Gallery metadata**: Stored at `gallery/photos.json` (overwritten on each save)
+
+### Required Environment Variable
+
+Set the `BLOB_READ_WRITE_TOKEN` environment variable with your Vercel Blob token:
+
+```bash
+export BLOB_READ_WRITE_TOKEN=vercel_blob_rw_...
+```
+
+To obtain the token:
+1. Go to Vercel Dashboard → Your Project → Storage → Blob
+2. Navigate to the `.env.local` tab
+3. Copy the token (starts with `vercel_blob_rw_...`)
+
+The token is configured in `src/main/resources/application.properties` as:
+```
+vercel.blob.token=${BLOB_READ_WRITE_TOKEN}
+```
+
 ## Development
 
 For frontend development, you can run the Angular dev server separately in the `frontend/` directory:
