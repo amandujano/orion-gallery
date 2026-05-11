@@ -74,3 +74,8 @@ cd frontend
 npm install
 npm start
 ```
+
+
+
+docker build -t orions-gallery-backend .
+docker run -d -p 8080:8080 --name orion-gallery orions-gallery-backend:latest

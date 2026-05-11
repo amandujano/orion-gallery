@@ -1,0 +1,28 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+.vscode
+*.iml
+
+# Maven
+target
+!target/*.jar
+
+# Node
+node_modules
+npm-debug.log
+package-lock.json
+
+# Angular
+.angular
+dist
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Other
+README.md
